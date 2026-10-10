@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galeria do Espaço — NASA Image Library</title>
+  <meta name="description" content="Pesquise e explore imagens do espaço da biblioteca de imagens da NASA.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#results">Ir para os resultados</a>
+
+  <header class="site-header">
+    <h1>Galeria do Espaço</h1>
+    <p>Imagens da biblioteca pública da NASA. Busque por planetas, missões, galáxias e mais.</p>
+
+    <form id="search-form" role="search" novalidate>
+      <label for="search-input">Tema da pesquisa</label>
+      <div class="search-row">
+        <input id="search-input" name="q" type="search" autocomplete="off"
+               placeholder="Ex.: Marte, nebulosa, Apollo 11"
+               aria-describedby="search-error" maxlength="100">
+        <button type="submit" id="search-button">Pesquisar</button>
+      </div>
+      <p id="search-error" class="field-error" role="alert" hidden></p>
+    </form>
+  </header>
+
+  <main id="results" tabindex="-1">
+    <p id="status" class="status" role="status" aria-live="polite">
+      Digite um tema acima para começar a explorar.
+    </p>
+    <div class="retry-wrapper" id="retry-wrapper" hidden>
+      <button type="button" id="retry-button">Tentar novamente</button>
+    </div>
+
+    <ul id="gallery" class="gallery" aria-label="Resultados da pesquisa"></ul>
+
+    <div class="more-wrapper">
+      <button type="button" id="load-more" hidden>Carregar mais resultados</button>
+    </div>
+  </main>
+
+  <dialog id="detail-dialog" aria-labelledby="detail-title">
+    <div class="detail-header">
+      <h2 id="detail-title"></h2>
+      <button type="button" id="detail-close" class="close-button">Fechar</button>
+    </div>
+
+    <div class="detail-body">
+      <figure class="detail-figure">
+        <img id="detail-image" alt="">
+        <figcaption id="detail-image-note" class="muted" aria-live="polite"></figcaption>
+      </figure>
+
+      <dl class="detail-meta">
+        <div><dt>Data</dt><dd id="detail-date"></dd></div>
+        <div><dt>Centro responsável</dt><dd id="detail-center"></dd></div>
+        <div><dt>Autor</dt><dd id="detail-author"></dd></div>
+        <div><dt>ID NASA</dt><dd id="detail-id"></dd></div>
+      </dl>
+
+      <section aria-labelledby="detail-description-title">
+        <h3 id="detail-description-title">Descrição</h3>
+        <div id="detail-description" class="description"></div>
+      </section>
+
+      <section aria-labelledby="detail-keywords-title">
+        <h3 id="detail-keywords-title">Palavras-chave</h3>
+        <ul id="detail-keywords" class="keywords"></ul>
+      </section>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <p>Dados: <a href="https://images.nasa.gov/" target="_blank" rel="noopener">NASA Image and Video Library</a>.
+       Projeto acadêmico — UESPI, Programação Web.</p>
+  </footer>
+
+  <!-- TODO: adicionar os scripts (api.js, ui.js, main.js) quando forem criados -->
+</body>
+</html>
