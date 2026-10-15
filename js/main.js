@@ -104,11 +104,6 @@ function handleLoadMore() {
   if (state.hasMore) runSearch(state.term, state.page + 1, true);
 }
 
-// TODO: implementar o modal de detalhes
-function openDetail(item, trigger) {
-  console.log("Detalhes ainda não implementados:", item.id);
-}
-
 els.form.addEventListener("submit", handleSubmit);
 els.input.addEventListener("input", () => showFieldError(""));
 els.loadMore.addEventListener("click", handleLoadMore);
